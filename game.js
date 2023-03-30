@@ -60,8 +60,8 @@ function gameOver() {
     $("h1").text("Game Over, press a key to restart");
 }
 
-function nextSequence() {
-    return Math.floor(Math.random() * 4);
+function getRandomValueFromArray(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
 
 function animateButton(color) {
@@ -73,7 +73,7 @@ function animateButton(color) {
 
 function showNextRandomColor() {
     $("h1").text("Level " + (userClickCount + 1));
-    var randomColor = buttonColors[nextSequence()];
+    var randomColor = getRandomValueFromArray(buttonColors);
     animateButton(randomColor);
 
     //Keep track of random buttons
